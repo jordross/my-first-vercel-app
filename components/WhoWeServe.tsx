@@ -1,0 +1,61 @@
+import { Building2, Users, Briefcase } from "lucide-react";
+
+export default function WhoWeServe() {
+  const clients = [
+    {
+      icon: Building2,
+      title: "Strata Corporations",
+      description: "Multi-family and commercial strata properties requiring consistent, reliable grounds maintenance and clear communication with councils.",
+    },
+    {
+      icon: Briefcase,
+      title: "Property Managers",
+      description: "Managing agents looking for a responsive commercial landscaping partner with proper insurance, WorkSafeBC clearance, and professional reporting.",
+    },
+    {
+      icon: Users,
+      title: "Commercial Properties",
+      description: "Office buildings, retail centers, and business parks needing weekly or bi-weekly maintenance with flexible scheduling.",
+    },
+  ];
+
+  return (
+    <section id="who-we-serve" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-happy-green-700 mb-4">
+            Who We Serve
+          </h2>
+          <p className="text-lg text-earth-600 max-w-2xl mx-auto">
+            We specialize in commercial and strata landscape maintenance—not residential yards. 
+            Our focus is on multi-site property managers and common-property grounds.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {clients.map((client, index) => {
+            const Icon = client.icon;
+            return (
+              <div 
+                key={index}
+                className="bg-happy-green-50 rounded-lg p-8 hover:shadow-lg transition-shadow border border-happy-green-100"
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="bg-happy-green-600 text-white p-4 rounded-full">
+                    <Icon className="w-8 h-8" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-happy-green-700 mb-3 text-center">
+                  {client.title}
+                </h3>
+                <p className="text-earth-700 text-center leading-relaxed">
+                  {client.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
