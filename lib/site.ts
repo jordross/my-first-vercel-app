@@ -9,7 +9,10 @@ export const contact = {
   formEndpoint: env(process.env.NEXT_PUBLIC_FORM_ENDPOINT),
 };
 
-export const phoneHref = contact.phone ? `tel:${contact.phone.replace(/[^\d+]/g, "")}` : undefined;
+const phoneDigits = contact.phone?.replace(/[^\d+]/g, "");
+export const phoneHref = phoneDigits
+  ? `tel:${/^\d{10}$/.test(phoneDigits) ? `+1${phoneDigits}` : phoneDigits}`
+  : undefined;
 
 // Set once the lead partner agrees to be featured. Only state experience that can be verified.
 export const leadPartner: {
