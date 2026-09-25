@@ -37,8 +37,9 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL || 'info@happybeelandscaping.ca' }}
-          NEXT_PUBLIC_CONTACT_PHONE: ${{ secrets.CONTACT_PHONE || '(604) 123-4567' }}
+          NEXT_PUBLIC_CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          NEXT_PUBLIC_CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
+          NEXT_PUBLIC_FORM_ENDPOINT: ${{ secrets.FORM_ENDPOINT }}
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

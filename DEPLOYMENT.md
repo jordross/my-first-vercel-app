@@ -15,7 +15,7 @@ Vercel provides the best experience with preview URLs, edge functions, and autom
 3. Configure environment variables:
    - `NEXT_PUBLIC_CONTACT_EMAIL` = your email
    - `NEXT_PUBLIC_CONTACT_PHONE` = your phone number
-   - `NEXT_PUBLIC_FORM_ENDPOINT` = (optional) Formspree/Resend endpoint
+   - `NEXT_PUBLIC_FORM_ENDPOINT` = (optional) Formspree endpoint
 4. Click **Deploy**
 
 Vercel will automatically:
@@ -52,15 +52,16 @@ If Vercel integration is unavailable, deploy to GitHub Pages automatically via G
 
 #### Setup Steps
 
-1. **Enable GitHub Pages** in repo settings:
+1. **Enable GitHub Pages** in repo settings (Source must be **GitHub Actions**, not a branch):
    - Go to: Settings → Pages
    - Source: **GitHub Actions**
    - Save
 
-2. **Add Secrets** (optional - will use placeholders if not set):
+2. **Add Secrets** (unset values are hidden on the site, not replaced with placeholders):
    - Go to: Settings → Secrets → Actions
-   - Add `CONTACT_EMAIL` (e.g., info@happybeelandscaping.ca)
-   - Add `CONTACT_PHONE` (e.g., (604) 123-4567)
+   - Add `CONTACT_EMAIL` (e.g., you@yourdomain.ca)
+   - Add `CONTACT_PHONE` (e.g., (604) 555-0100)
+   - Add `FORM_ENDPOINT` (optional, e.g. your Formspree URL)
 
 3. **Trigger Deployment**:
    - Merge PR to `main` (auto-deploys)
@@ -105,7 +106,7 @@ cd out && python3 -m http.server 8000
 - `NEXT_PUBLIC_CONTACT_PHONE` - Your phone number (formatted as displayed)
 
 ### Optional
-- `NEXT_PUBLIC_FORM_ENDPOINT` - Formspree or Resend endpoint URL
+- `NEXT_PUBLIC_FORM_ENDPOINT` - Formspree (or other JSON form service) endpoint URL
   - If not set, form uses mailto fallback (opens email client)
 
 ### Setting Variables
