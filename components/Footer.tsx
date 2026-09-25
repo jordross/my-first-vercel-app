@@ -1,3 +1,5 @@
+import Logo from "@/components/Logo";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -6,9 +8,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-3xl" role="img" aria-label="bee">🐝</span>
-              <h3 className="text-xl font-bold">Happy Bee Landscaping</h3>
+            <div className="mb-4">
+              <Logo inverted />
             </div>
             <p className="text-happy-green-100 leading-relaxed">
               Commercial grounds & property maintenance for stratas and property managers across Metro Vancouver.
@@ -39,6 +40,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#faq" className="text-happy-green-100 hover:text-white transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="text-happy-green-100 hover:text-white transition-colors">
                   Contact
                 </a>
@@ -59,7 +65,7 @@ export default function Footer() {
                 href="#contact" 
                 className="inline-block bg-white text-happy-green-700 px-6 py-2 rounded-lg font-semibold hover:bg-happy-green-50 transition-colors"
               >
-                Get a Quote
+                Request vendor package
               </a>
             </div>
           </div>
