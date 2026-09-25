@@ -2,14 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Static export configuration for GitHub Pages fallback
-  // Comment out 'output' and 'images.unoptimized' for standard Vercel deployment
   output: process.env.GITHUB_PAGES ? 'export' : undefined,
   images: {
     unoptimized: process.env.GITHUB_PAGES === 'true',
   },
-  // GitHub Pages subdirectory support
-  basePath: process.env.GITHUB_PAGES ? '' : undefined,
+  // GitHub Pages serves project sites from /<repo>/, so assets need the prefix there.
+  basePath: process.env.GITHUB_PAGES ? '/my-first-vercel-app' : undefined,
   trailingSlash: true,
 };
 

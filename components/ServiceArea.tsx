@@ -24,8 +24,8 @@ export default function ServiceArea() {
                   City of Vancouver (Primary Focus)
                 </h3>
                 <p className="text-earth-700 leading-relaxed mb-4">
-                  We&apos;re prioritizing properties within the City of Vancouver to build route density and deliver 
-                  consistent service. This geographic focus lets us respond quickly and keep costs competitive.
+                  Our routes are concentrated in the City of Vancouver, so crews are never far from your building.
+                  That means dependable visit days, quicker responses to issues, and less travel time built into your price.
                 </p>
               </div>
             </div>
@@ -50,8 +50,8 @@ export default function ServiceArea() {
 
             <div className="mt-8 bg-happy-green-50 border-l-4 border-happy-green-600 p-6 rounded">
               <p className="text-earth-700 font-medium">
-                <strong className="text-happy-green-700">Cluster strategy:</strong> We believe route density 
-                beats metro-wide chasing. Starting in Vancouver lets us build efficiency and reliability before expanding.
+                <strong className="text-happy-green-700">Managing buildings outside Vancouver?</strong> Tell us where they are.
+                We&apos;ll say honestly which sites we can serve well now and which we&apos;d add as our routes grow.
               </p>
             </div>
           </div>

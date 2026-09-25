@@ -74,8 +74,8 @@ export default function Services() {
 
         <div className="mt-12 bg-white border-l-4 border-happy-green-600 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
           <p className="text-earth-700">
-            <strong className="text-happy-green-700">Focused approach:</strong> We prioritize recurring maintenance and softscape care. 
-            Heavy design-build and hardscape capital projects are deferred while we establish reliable service and cash flow.
+            <strong className="text-happy-green-700">Maintenance specialists:</strong> We focus on recurring grounds care and
+            softscape, not one-off design-build or hardscape projects, so your building&apos;s schedule is never bumped for a big install job.
           </p>
         </div>
       </div>

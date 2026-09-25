@@ -51,7 +51,7 @@ This website serves as the primary digital presence for Happy Bee Landscaping, d
 - Client-side validation for immediate user feedback
 - Phone number formatting with US format support
 - Email validation with pattern matching
-- Flexible form submission options (Formspree, Resend API, or mailto fallback)
+- Flexible form submission options (Formspree or any JSON form endpoint, with mailto fallback)
 - Error handling with user-friendly messages
 - Success confirmation with visual feedback
 
@@ -95,13 +95,16 @@ The site will be available at `http://localhost:3000`
 
 ### Required Variables
 
-These variables must be set for the website to display correct contact information:
+Set these before sharing the site. If either is unset, the site hides it rather than showing a placeholder
+(the phone button disappears from the header and contact section).
 
 ```bash
-# Contact Information (displayed throughout the site)
-NEXT_PUBLIC_CONTACT_EMAIL=info@happybeelandscaping.ca
-NEXT_PUBLIC_CONTACT_PHONE=(604) 123-4567
+NEXT_PUBLIC_CONTACT_EMAIL=you@yourdomain.ca
+NEXT_PUBLIC_CONTACT_PHONE=(604) 555-0100   # displayed exactly as written; the tel: link strips formatting
 ```
+
+Business facts that aren't secrets (lead partner bio, credentials, whether insurance/WorkSafeBC are in place)
+live in `lib/site.ts`. See `CONTENT.md`.
 
 **Important**: These variables are prefixed with `NEXT_PUBLIC_` because they are used in client-side components. They will be embedded in the JavaScript bundle.
 
@@ -121,18 +124,10 @@ NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/your-form-id
 
 **Pros**: Easy setup, spam protection, no backend required, submission tracking
 
-#### Option 2: Resend API
-```bash
-RESEND_API_KEY=re_your_api_key_here
-```
-
-**Setup**:
-1. Create an account at [resend.com](https://resend.com)
-2. Generate an API key from the dashboard
-3. Verify your sending domain
-4. Requires backend API route (included in project)
-
-**Pros**: Full control, no third-party branding, programmable email handling
+#### Option 2: Resend (not included)
+Resend needs a server-side API route to keep the API key secret. This project doesn't include one, and
+GitHub Pages (static hosting) can't run one. If you move fully to Vercel, add `app/api/contact/route.ts`
+that sends via Resend, then set `NEXT_PUBLIC_FORM_ENDPOINT=/api/contact`.
 
 #### Option 3: Mailto Fallback
 If no form endpoint is configured, the form will use the `mailto:` protocol, opening the user's default email client.
@@ -188,7 +183,7 @@ Vercel is the recommended deployment platform for Next.js applications.
    - In the project settings, add your environment variables:
      - `NEXT_PUBLIC_CONTACT_EMAIL`
      - `NEXT_PUBLIC_CONTACT_PHONE`
-     - `NEXT_PUBLIC_FORM_ENDPOINT` (or `RESEND_API_KEY`)
+     - `NEXT_PUBLIC_FORM_ENDPOINT` (optional)
 
 4. **Deploy**:
    - Vercel will automatically build and deploy
@@ -420,7 +415,7 @@ Tested and supported on:
 **Solution**: Check browser console for errors, verify `NEXT_PUBLIC_FORM_ENDPOINT` is set correctly
 
 **Issue**: Emails not being received
-**Solution**: Check spam folder, verify Formspree/Resend configuration, test email addresses
+**Solution**: Check spam folder, verify the Formspree configuration, test email addresses
 
 ## Support and Maintenance
 
@@ -454,9 +449,7 @@ This is a custom website built for Happy Bee Landscaping. All rights reserved.
 
 ## Contact
 
-For technical support or questions about this website:
-- Email: info@happybeelandscaping.ca
-- Phone: (604) 123-4567
+For questions about this website, open an issue in this repository.
 
 ---
 
